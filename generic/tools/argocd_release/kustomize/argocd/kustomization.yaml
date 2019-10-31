@@ -3,6 +3,10 @@ commonLabels:
 resources:
  - base.yaml
  - access.yaml
+ - solsa/solsa-cm.yaml
+patchesStrategicMerge:
+ - solsa/argocd-reposerver.yaml
+ - solsa/argocd-cm.yaml
 patchesJson6902:
  - path: patch-ingress.yaml
    target:
@@ -16,3 +20,4 @@ patchesJson6902:
     version: v1beta1
     kind: Ingress
     name: argocd-server-grpc
+

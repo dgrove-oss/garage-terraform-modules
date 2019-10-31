@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: argocd-repo-server
+spec:
+  template:
+    spec:
+      volumes:
+      - name: solsa-install
+        emptyDir: {}
+      - name: solsa-config
+        configMap:
+          name: solsa-cm
+      initContainers:
+      - name: solsa-install
+        image: node:10
+        command: [sh, -c]
+        args:
+        - npm install -g pkg && cd /solsa && npm install solsa && cd node_modules/solsa && pkg . -t host
+        volumeMounts:
+        - mountPath: /solsa
+          name: solsa-install
+      containers:
+      - name: argocd-repo-server
+        volumeMounts:
+        - mountPath: /solsa/solsa
+          name: solsa-install
+        - mountPath: /solsa/solsa-config
+          name: solsa-config
