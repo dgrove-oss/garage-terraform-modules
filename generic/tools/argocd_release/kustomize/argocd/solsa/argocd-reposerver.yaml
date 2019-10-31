@@ -16,7 +16,7 @@ spec:
         image: node:10
         command: [sh, -c]
         args:
-        - npm install -g pkg && cd /solsa && npm install solsa && cd node_modules/solsa && pkg . -t host
+        - mkdir /tmp/home && export HOME=/tmp/home && cd /solsa && npm install pkg && npm install solsa && cd node_modules/solsa && ../.bin/pkg . -t host
         volumeMounts:
         - mountPath: /solsa
           name: solsa-install
