@@ -32,7 +32,7 @@ ARGOCD_ACCESS_KUSTOMIZE="${ARGOCD_KUSTOMIZE}/access.yaml"
 
 ARGOCD_YAML="${TMP_DIR}/argocd.yaml"
 
-HELM_REPO="https://ibm-garage-cloud.github.io/argo-helm/"
+HELM_REPO="https://argoproj.github.io/argo-helm/"
 
 echo "*** Fetching the helm chart from ${HELM_REPO}"
 mkdir -p ${CHART_DIR}
