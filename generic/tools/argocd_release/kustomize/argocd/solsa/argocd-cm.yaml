@@ -7,4 +7,4 @@ data:
     - name: solsa
       generate:
         command: [sh, -c]
-        args: ["/solsa/solsa/node_modules/solsa/solsa yaml instance.js --config /solsa/solsa-config/solsa.yaml --cluster in-cluster --context in-cluster-context"]
+        args: ["/solsa/solsa/node_modules/solsa/solsa yaml $SOLSA_APP_MAIN --config /solsa/solsa-config/solsa.yaml --cluster ${SOLSA_CLUSTER:-in-cluster} --context ${SOLSA_CONTEXT:-in-cluster-context} $SOLSA_EXTRA_ARGS"]
