@@ -1,7 +1,7 @@
 locals {
   tmp_dir      = "${path.cwd}/.tmp"
   chart_name   = "argo-cd"
-  version      = "1.2.4"
+  version      = "0.7.2"
   ingress_host = "argocd.${var.cluster_ingress_hostname}"
   ingress_url  = "http://${local.ingress_host}"
   config_name  = "argocd-config"
